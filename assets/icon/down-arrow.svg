@@ -1,0 +1,58 @@
+				<div class="navbar-item">
+                    <div class="navbar-subitem  icon-left">
+                    </div>
+                    <div class="navbar-subitem item-content">Ghi tang</div>
+                    <div class="navbar-subitem icon-right"></div>
+                </div>
+                <div class="navbar-item">
+                    <div class="navbar-subitem icon-left">
+                       
+                    </div>
+                    <div class="navbar-subitem item-content">Thay d?i thông tin</div>
+                    <div class="navbar-subitem icon-right">
+                        
+                    </div>
+                </div>
+                <div class="navbar-item">
+                    <div class="navbar-subitem  icon-left">
+                      
+                    </div>
+                    <div class="navbar-subitem item-content">Dánh giá l?i</div>
+                    <div class="navbar-subitem icon-right">
+                        
+                    </div>
+                </div>
+                <div class="navbar-item">
+                    <div class="navbar-subitem  icon-left">
+                       
+                    </div>
+                    <div class="navbar-subitem item-content">Tính hao mòn</div>
+                    <div class="navbar-subitem icon-right">
+                        
+                    </div>
+                </div>
+                <div class="navbar-item">
+                    <div class="navbar-subitem  icon-left">
+                       
+                    </div>
+                    <div class="navbar-subitem item-content">Ki?m kê</div>
+                    <div class="navbar-subitem icon-right">
+                    </div>
+                </div>
+                <div class="navbar-item">
+                    <div class="navbar-subitem  icon-left">
+                       
+                    </div>
+                    <div class="navbar-subitem item-content">Ghi giám</div>
+                    <div class="navbar-subitem icon-right">
+                    </div>
+                </div>
+                <div class="navbar-item">
+                    <div class="navbar-subitem  icon-left">
+                      
+                    </div>
+                    <div class="navbar-subitem item-content">Báo cáo</div>
+                    <div class="navbar-subitem icon-right">
+                        
+                    </div>
+                </div>

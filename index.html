@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <!-- Phần thư viện -->
+    <link href = "https://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css"
+         rel = "stylesheet">
+
+    <!-- Phần dùng chung -->
+    <link rel="stylesheet" href="assets/css/common.css">
+    
+    <!-- Phần riêng từng màn hình -->
+    <link rel="stylesheet" href="assets/css/asset.css">
+</head>
+<body>
+    
+    <div class="wrapper d-flex">
+        <!-- Phần sidebar trái -->
+        <div class="sidebar">
+            <div class="navbar">
+                <div id="app-logo" class="navbar-item">
+                    <div  class="navbar-subitem icon-left">
+                        <div class="logo-box">
+                            <svg title="Trang chủ" class="white-icon" xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentCol hide-itemor" class="bi bi-house-door" viewBox="0 0 16 16">
+                                <path d="M8.354 1.146a.5.5 0 0 0-.708 0l-6 6A.5.5 0 0 0 1.5 7.5v7a.5.5 0 0 0 .5.5h4.5a.5.5 0 0 0 .5-.5v-4h2v4a.5.5 0 0 0 .5.5H14a.5.5 0 0 0 .5-.5v-7a.5.5 0 0 0-.146-.354L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.354 1.146zM2.5 14V7.707l5.5-5.5 5.5 5.5V14H10v-4a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5v4H2.5z"/>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="navbar-subitem item-content app-font">MISA QLTS</div>
+                    <div class="navbar-subitem app-font">
+                        <svg title="Chế độ thu gọn" class="white-icon" xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentCol hide-itemor" class="bi bi-list" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/>
+                        </svg>
+                    </div>
+                </div>
+                <div class="navbar-item">
+                    <div class="navbar-subitem icon-left">
+                        <svg title="Tổng quan"  xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentCol hide-itemor" class="bi bi-col hide-itemumns-gap" viewBox="0 0 16 16">
+                            <path d="M6 1v3H1V1h5zM1 0a1 1 0 0 0-1 1v3a1 1 0 0 0 1 1h5a1 1 0 0 0 1-1V1a1 1 0 0 0-1-1H1zm14 12v3h-5v-3h5zm-5-1a1 1 0 0 0-1 1v3a1 1 0 0 0 1 1h5a1 1 0 0 0 1-1v-3a1 1 0 0 0-1-1h-5zM6 8v7H1V8h5zM1 7a1 1 0 0 0-1 1v7a1 1 0 0 0 1 1h5a1 1 0 0 0 1-1V8a1 1 0 0 0-1-1H1zm14-6v7h-5V1h5zm-5-1a1 1 0 0 0-1 1v7a1 1 0 0 0 1 1h5a1 1 0 0 0 1-1V1a1 1 0 0 0-1-1h-5z"/>
+                        </svg>
+                    </div>
+                    <div class="navbar-subitem item-content">Tổng quan</div>
+                    <div class="navbar-subitem icon-right"></div>
+                </div>
+                <div class="navbar-item">
+                    <div class="navbar-subitem icon-left">
+                        <svg title="Tài sản" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentCol hide-itemor" class="bi bi-box-seam" viewBox="0 0 16 16">
+                            <path d="M8.186 1.113a.5.5 0 0 0-.372 0L1.846 3.5l2.404.961L10.404 2l-2.218-.887zm3.564 1.426L5.596 5 8 5.961 14.154 3.5l-2.404-.961zm3.25 1.7-6.5 2.6v7.922l6.5-2.6V4.24zM7.5 14.762V6.838L1 4.239v7.923l6.5 2.6zM7.443.184a1.5 1.5 0 0 1 1.114 0l7.129 2.852A.5.5 0 0 1 16 3.5v8.662a1 1 0 0 1-.629.928l-7.185 2.874a.5.5 0 0 1-.372 0L.63 13.09a1 1 0 0 1-.63-.928V3.5a.5.5 0 0 1 .314-.464L7.443.184z"/>
+                        </svg>
+                    </div>
+                    <div class="navbar-subitem item-content">Tài sản</div>
+                    <div class="navbar-subitem icon-right">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentCol hide-itemor" class="bi bi-chevron-down" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/>
+                        </svg>
+                    </div>
+                </div>
+                <div class="subitem-dropdown hide">
+                    <ul>
+                        <li>
+                            
+                            <a href="#">
+                                <svg  class="hide icon-left" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentCol hide-itemor" class="bi bi-chevron-right" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
+                                </svg>
+                                <span>Ghi tăng</span>
+                            </a>
+                        </li>
+                        <li>
+                            
+                            <a href="#">
+                                <svg class="hide icon-left" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentCol hide-itemor" class="bi bi-chevron-right" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
+                                </svg>
+                                <span>Thay đổi thông tin</span></a></li>
+                        <li>
+                            
+                            <a href="#">
+                                <svg class="hide icon-left" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentCol hide-itemor" class="bi bi-chevron-right" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
+                                </svg>
+                                <span>Đánh giá lại</span></a></li>
+                        <li>
+                            
+                            <a href="#">
+                                <svg class="hide icon-left" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentCol hide-itemor" class="bi bi-chevron-right" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
+                                </svg>
+                                 <span>Tính hao mòn</span>    
+                            </a>
+                        </li>
+                        <li>
+                            
+                            <a href="#">
+                                <svg class="hide icon-left" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentCol hide-itemor" class="bi bi-chevron-right" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
+                                </svg>
+                                <span>Tính hao mòn</span>
+                            </a>
+                         </li>
+                        <li>
+                            
+                            <a href="#">
+                                <svg class="hide icon-left" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentCol hide-itemor" class="bi bi-chevron-right" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
+                                </svg>
+                               <span> Ghi giám</span></a></li>
+                        <li>
+                            
+                        <a href="#">
+                                <svg class="hide icon-left" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentCol hide-itemor" class="bi bi-chevron-right" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
+                                </svg>
+                                <span>Báo cáo</span></a></li>
+                    </ul>
+                </div>
+                <div class="navbar-item">
+                    <div class="navbar-subitem  icon-left">
+                        <svg title="Tài sản HT-ĐB" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentCol hide-itemor" class="bi bi-clipboard-data" viewBox="0 0 16 16">
+                            <path d="M4 11a1 1 0 1 1 2 0v1a1 1 0 1 1-2 0v-1zm6-4a1 1 0 1 1 2 0v5a1 1 0 1 1-2 0V7zM7 9a1 1 0 0 1 2 0v3a1 1 0 1 1-2 0V9z"/>
+                            <path d="M4 1.5H3a2 2 0 0 0-2 2V14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V3.5a2 2 0 0 0-2-2h-1v1h1a1 1 0 0 1 1 1V14a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V3.5a1 1 0 0 1 1-1h1v-1z"/>
+                            <path d="M9.5 1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5h3zm-3-1A1.5 1.5 0 0 0 5 1.5v1A1.5 1.5 0 0 0 6.5 4h3A1.5 1.5 0 0 0 11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3z"/>
+                        </svg>
+                    </div>
+                    <div class="navbar-subitem item-content">Tài sản HT-ĐB</div>
+                    <div class="navbar-subitem icon-right">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentCol hide-itemor" class="bi bi-chevron-down" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/>
+                        </svg>
+                    </div>
+                </div>
+                <div class="subitem-dropdown hide">
+                    <ul>
+                        <li>
+                            
+                            <a href="#">
+                                <svg class="hide icon-left" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentCol hide-itemor" class="bi bi-chevron-right" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
+                                </svg>
+                                <span>Ghi tăng</span></a></li>
+                        <li>
+                            
+                            <a href="#">
+                                <svg class="hide icon-left" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentCol hide-itemor" class="bi bi-chevron-right" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
+                                </svg>
+                                <span>Thay đổi thông tin</span></a></li>
+                        <li>
+                            
+                            <a href="#">
+                                <svg class="hide icon-left" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentCol hide-itemor" class="bi bi-chevron-right" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
+                                </svg>
+                                <span>Thay đổi thông tin</span></a></li>
+                        <li>
+                            
+                            <a href="#">
+                                <svg class="hide icon-left" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentCol hide-itemor" class="bi bi-chevron-right" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
+                                </svg>
+                                <span>Tính hao mòn</span></a></li>
+                        <li>
+                            
+                        <a href="#">
+                                <svg class="hide icon-left" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentCol hide-itemor" class="bi bi-chevron-right" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
+                                </svg>
+                                <span>Kiểm kê</span></a></li>
+                        <li>
+                            
+                            <a href="#">
+                                <svg class="hide icon-left" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentCol hide-itemor" class="bi bi-chevron-right" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
+                                </svg>
+                                <span>Ghi giám</span></a></li>
+                        <li>
+                            
+                        <a href="#">
+                                <svg class="hide icon-left" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentCol hide-itemor" class="bi bi-chevron-right" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
+                                </svg>
+                                <span>Báo cáo</span></a></li>
+                    </ul>
+                </div>
+                <div class="navbar-item">
+                    <div class="navbar-subitem  icon-left">
+                        <svg title="Công cụ dụng cụ" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentCol hide-itemor" class="bi bi-tools" viewBox="0 0 16 16">
+                            <path d="M1 0 0 1l2.2 3.081a1 1 0 0 0 .815.419h.07a1 1 0 0 1 .708.293l2.675 2.675-2.617 2.654A3.003 3.003 0 0 0 0 13a3 3 0 1 0 5.878-.851l2.654-2.617.968.968-.305.914a1 1 0 0 0 .242 1.023l3.356 3.356a1 1 0 0 0 1.414 0l1.586-1.586a1 1 0 0 0 0-1.414l-3.356-3.356a1 1 0 0 0-1.023-.242L10.5 9.5l-.96-.96 2.68-2.643A3.005 3.005 0 0 0 16 3c0-.269-.035-.53-.102-.777l-2.14 2.141L12 4l-.364-1.757L13.777.102a3 3 0 0 0-3.675 3.68L7.462 6.46 4.793 3.793a1 1 0 0 1-.293-.707v-.071a1 1 0 0 0-.419-.814L1 0zm9.646 10.646a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708zM3 11l.471.242.529.026.287.445.445.287.026.529L5 13l-.242.471-.026.529-.445.287-.287.445-.529.026L3 15l-.471-.242L2 14.732l-.287-.445L1.268 14l-.026-.529L1 13l.242-.471.026-.529.445-.287.287-.445.529-.026L3 11z"/>
+                        </svg>
+                    </div>
+                    <div class="navbar-subitem item-content">Công cụ dụng cụ</div>
+                    <div class="navbar-subitem icon-right">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentCol hide-itemor" class="bi bi-chevron-down" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/>
+                        </svg>
+                    </div>
+                </div>
+                <div class="subitem-dropdown hide">
+                    <ul>
+                        <li>
+                            
+                            <a href="#">
+                                <svg class="hide icon-left" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentCol hide-itemor" class="bi bi-chevron-right" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
+                                </svg>
+                                <span>Ghi tăng</span></a></li>
+                        <li>
+                            
+                            <a href="#">
+                                <svg class="hide icon-left" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentCol hide-itemor" class="bi bi-chevron-right" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
+                                </svg>
+                                <span>Thay đổi thông tin</span></a></li>
+                        <li>
+                            
+                            <a href="#">
+                                <svg class="hide icon-left" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentCol hide-itemor" class="bi bi-chevron-right" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
+                                </svg>
+                                <span>Thay đổi thông tin</span></a></li>
+                        <li>
+                            
+                            <a href="#">
+                                <svg class="hide icon-left" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentCol hide-itemor" class="bi bi-chevron-right" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
+                                </svg>
+                                <span>Tính hao mòn</span></a></li>
+                        <li>
+                            
+                        <a href="#">
+                                <svg class="hide icon-left" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentCol hide-itemor" class="bi bi-chevron-right" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
+                                </svg>
+                                <span>Kiểm kê</span></a></li>
+                        <li>
+                            
+                            <a href="#">
+                                <svg class="hide icon-left" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentCol hide-itemor" class="bi bi-chevron-right" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
+                                </svg>
+                                <span>Ghi giám</span></a></li>
+                        <li>
+                            
+                        <a href="#">
+                                <svg class="hide icon-left" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentCol hide-itemor" class="bi bi-chevron-right" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
+                                </svg>
+                                <span>Báo cáo</span></a></li>
+                    </ul>
+                </div>
+                <div class="navbar-item">
+                    <div class="navbar-subitem  icon-left">
+                        <svg title="Danh mục" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentCol hide-itemor" class="bi bi-list-task" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd" d="M2 2.5a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5V3a.5.5 0 0 0-.5-.5H2zM3 3H2v1h1V3z"/>
+                            <path d="M5 3.5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5zM5.5 7a.5.5 0 0 0 0 1h9a.5.5 0 0 0 0-1h-9zm0 4a.5.5 0 0 0 0 1h9a.5.5 0 0 0 0-1h-9z"/>
+                            <path fill-rule="evenodd" d="M1.5 7a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5H2a.5.5 0 0 1-.5-.5V7zM2 7h1v1H2V7zm0 3.5a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5H2zm1 .5H2v1h1v-1z"/>
+                        </svg>
+                    </div>
+                    <div class="navbar-subitem item-content">Danh mục</div>
+                    <div class="navbar-subitem icon-right">
+                    </div>
+                </div>
+                <div class="navbar-item">
+                    <div class="navbar-subitem  icon-left">
+                        <svg title="Tra cứu" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentCol hide-itemor" class="bi bi-search" viewBox="0 0 16 16">
+                            <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+                        </svg>
+                    </div>
+                    <div class="navbar-subitem item-content">Tra cứu</div>
+                    <div class="navbar-subitem icon-right">
+                    </div>
+                </div>
+                <div class="navbar-item">
+                    <div class="navbar-subitem  icon-left">
+                        <svg title="Báo cáo" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentCol hide-itemor" class="bi bi-card-heading" viewBox="0 0 16 16">
+                            <path d="M14.5 3a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-13a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h13zm-13-1A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2h-13z"/>
+                            <path d="M3 8.5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5zm0 2a.5.5 0 0 1 .5-.5h6a.5.5 0 0 1 0 1h-6a.5.5 0 0 1-.5-.5zm0-5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-9a.5.5 0 0 1-.5-.5v-1z"/>
+                        </svg>
+                    </div>
+                    <div class="navbar-subitem item-content">Báo cáo</div>
+                    <div class="navbar-subitem icon-right">
+                        
+                    </div>
+                </div>
+
+                <div class="navbar-item">
+                    <div class="navbar-subitem  icon-left">
+                        <svg title="Chế độ mở rộng" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentCol hide-itemor" class="bi bi-arrow-bar-right" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd" d="M6 8a.5.5 0 0 0 .5.5h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 0 0-.708.708L12.293 7.5H6.5A.5.5 0 0 0 6 8zm-2.5 7a.5.5 0 0 1-.5-.5v-13a.5.5 0 0 1 1 0v13a.5.5 0 0 1-.5.5z"/>
+                        </svg>
+                    </div>
+                    <div class="navbar-subitem item-content">Menu lớn</div>
+                    <div class="navbar-subitem icon-right">
+                    </div>
+                </div>
+            </div>
+            <!-- todo -->
+        </div>
+       
+        <!-- Phần content phải -->
+        <div class="content">
+            <!-- Phần header -->
+            <div class="header d-flex">
+
+                <!-- Phần trái header -->
+                <div class="header-title">
+                    Sở tài chính
+                </div>
+                <div title="Năm" class="header-dropdown-year">
+                    <select>
+                        <option value="2021">2021</option>
+                        <option value="2020">2020</option>
+                        <option value="2019">2019</option>
+                        <option value="2018">2018</option>
+                    </select>
+                </div>
+
+                <!-- Phần phải header -->
+                <div class="header-right-site">
+                    
+                    <svg title="Thông báo" data-tooltip="Thông báo" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentCol hide-itemor" class="bi bi-bell" viewBox="0 0 16 16">
+                        <path d="M8 16a2 2 0 0 0 2-2H6a2 2 0 0 0 2 2zM8 1.918l-.797.161A4.002 4.002 0 0 0 4 6c0 .628-.134 2.197-.459 3.742-.16.767-.376 1.566-.663 2.258h10.244c-.287-.692-.502-1.49-.663-2.258C12.134 8.197 12 6.628 12 6a4.002 4.002 0 0 0-3.203-3.92L8 1.917zM14.22 12c.223.447.481.801.78 1H1c.299-.199.557-.553.78-1C2.68 10.2 3 6.88 3 6c0-2.42 1.72-4.44 4.005-4.901a1 1 0 1 1 1.99 0A5.002 5.002 0 0 1 13 6c0 .88.32 4.2 1.22 6z"/>
+                    </svg>
+                    <svg title="Tùy chọn" data-tooltip="icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentCol hide-itemor" class="bi bi-grid" viewBox="0 0 16 16">
+                        <path d="M1 2.5A1.5 1.5 0 0 1 2.5 1h3A1.5 1.5 0 0 1 7 2.5v3A1.5 1.5 0 0 1 5.5 7h-3A1.5 1.5 0 0 1 1 5.5v-3zM2.5 2a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5h-3zm6.5.5A1.5 1.5 0 0 1 10.5 1h3A1.5 1.5 0 0 1 15 2.5v3A1.5 1.5 0 0 1 13.5 7h-3A1.5 1.5 0 0 1 9 5.5v-3zm1.5-.5a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5h-3zM1 10.5A1.5 1.5 0 0 1 2.5 9h3A1.5 1.5 0 0 1 7 10.5v3A1.5 1.5 0 0 1 5.5 15h-3A1.5 1.5 0 0 1 1 13.5v-3zm1.5-.5a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5h-3zm6.5.5A1.5 1.5 0 0 1 10.5 9h3a1.5 1.5 0 0 1 1.5 1.5v3a1.5 1.5 0 0 1-1.5 1.5h-3A1.5 1.5 0 0 1 9 13.5v-3zm1.5-.5a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5h-3z"/>
+                    </svg>
+                    <svg title="Giúp đỡ" data-tooltip="icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentCol hide-itemor" class="bi bi-question-circle" viewBox="0 0 16 16">
+                        <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                        <path d="M5.255 5.786a.237.237 0 0 0 .241.247h.825c.138 0 .248-.113.266-.25.09-.656.54-1.134 1.342-1.134.686 0 1.314.343 1.314 1.168 0 .635-.374.927-.965 1.371-.673.489-1.206 1.06-1.168 1.987l.003.217a.25.25 0 0 0 .25.246h.811a.25.25 0 0 0 .25-.25v-.105c0-.718.273-.927 1.01-1.486.609-.463 1.244-.977 1.244-2.056 0-1.511-1.276-2.241-2.673-2.241-1.267 0-2.655.59-2.75 2.286zm1.557 5.763c0 .533.425.927 1.01.927.609 0 1.028-.394 1.028-.927 0-.552-.42-.94-1.029-.94-.584 0-1.009.388-1.009.94z"/>
+                    </svg>
+                    <svg title="Người dùng" data-tooltip="icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentCol hide-itemor" class="bi bi-person-circle" viewBox="0 0 16 16">
+                        <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
+                        <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
+                    </svg>
+                    <svg title="Thao tác" data-tooltip="icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentCol hide-itemor" class="bi bi-caret-down-fill" viewBox="0 0 16 16">
+                        <path d="M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z"/>
+                    </svg>
+                </div>
+            </div>
+            
+            <!-- Phần main content -->
+            <div class="main-content">
+
+                <!-- Phần page title -->
+                 <div class="page-title">
+                     <div class="table-title">
+                        <p>Danh sách tài sản</p>
+                        <svg title="Làm mới bảng" class="icon-size" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentCol hide-itemor" class="bi bi-arrow-repeat" viewBox="0 0 16 16">
+                            <path d="M11.534 7h3.932a.25.25 0 0 1 .192.41l-1.966 2.36a.25.25 0 0 1-.384 0l-1.966-2.36a.25.25 0 0 1 .192-.41zm-11 2h3.932a.25.25 0 0 0 .192-.41L2.692 6.23a.25.25 0 0 0-.384 0L.342 8.59A.25.25 0 0 0 .534 9z"/>
+                            <path fill-rule="evenodd" d="M8 3c-1.552 0-2.94.707-3.857 1.818a.5.5 0 1 1-.771-.636A6.002 6.002 0 0 1 13.917 7H12.9A5.002 5.002 0 0 0 8 3zM3.1 9a5.002 5.002 0 0 0 8.757 2.182.5.5 0 1 1 .771.636A6.002 6.002 0 0 1 2.083 9H3.1z"/>
+                        </svg>
+                     </div>
+
+                     <div class="right-btn">
+                        <button title="Thêm mới">
+                            <span>Thêm</span>
+                            <svg class="white-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentCol hide-itemor" class="bi bi-chevron-down" viewBox="0 0 16 16">
+                                <path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/>
+                            </svg>
+                        </button>
+                        <div class="right-btn-toggle">
+
+                            <svg title="Thao tác" class="icon-size" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentCol hide-itemor" class="bi bi-list" viewBox="0 0 16 16">
+                                <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/>
+                            </svg>
+                            <svg class="icon-size" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentCol hide-itemor" class="bi bi-caret-down-fill" viewBox="0 0 16 16">
+                                <path d="M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z"/>
+                            </svg>
+                        </div>
+                     </div> 
+                 </div>
+
+                 <!-- Phần grid -->
+                 <div class="grid">
+
+                    <!-- Thanh tìm kiếm -->
+                     <div class="filter-bar">
+                         <div class="search-box">
+                             <input type="text" placeholder="Tìm kiếm tài sản">
+                         </div>
+                         <div class="tools">
+                            <svg title="Xuất excel"  class="icon-size" viewBox="0 0 24 24"><path d="M13.5 23.5a.487.487 0 0 1-.076-.006l-13-2A.5.5 0 0 1 0 21V4a.5.5 0 0 1 .388-.487l13-3A.497.497 0 0 1 14 1v22a.496.496 0 0 1-.5.5zM1 20.571l12 1.846V1.628L1 4.398v16.173z"/><path d="M23.5 21.5h-10a.5.5 0 010-1H23v-17h-9.5a.5.5 0 010-1h10a.5.5 0 01.5.5v18a.5.5 0 01-.5.5zM9.5 16.5a.497.497 0 01-.424-.235l-5-8a.5.5 0 01.848-.53l5 8a.5.5 0 01-.424.765z"/><path d="M4.5 16.5a.5.5 0 01-.424-.765l5-8a.5.5 0 01.848.53l-5 8a.5.5 0 01-.424.235zM17.5 21.5a.5.5 0 01-.5-.5V3a.5.5 0 011 0v18a.5.5 0 01-.5.5z"/><path d="M23.5 18.5h-10a.5.5 0 010-1h10a.5.5 0 010 1zM23.5 15.5h-10a.5.5 0 010-1h10a.5.5 0 010 1zM23.5 12.5h-10a.5.5 0 010-1h10a.5.5 0 010 1zM23.5 9.5h-10a.5.5 0 010-1h10a.5.5 0 110 1zM23.5 6.5h-10a.5.5 0 010-1h10a.5.5 0 110 1z"/></svg>
+                            <svg title="In ra"  class="icon-size" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentCol hide-itemor" class="bi bi-printer" viewBox="0 0 16 16">
+                                <path d="M2.5 8a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1z"/>
+                                <path d="M5 1a2 2 0 0 0-2 2v2H2a2 2 0 0 0-2 2v3a2 2 0 0 0 2 2h1v1a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2v-1h1a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-1V3a2 2 0 0 0-2-2H5zM4 3a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1v2H4V3zm1 5a2 2 0 0 0-2 2v1H2a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1h-1v-1a2 2 0 0 0-2-2H5zm7 2v3a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1v-3a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1z"/>
+                            </svg>
+                            <svg title="Thêm" class="icon-size" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentCol hide-itemor" class="bi bi-three-dots-vertical" viewBox="0 0 16 16">
+                                <path d="M9.5 13a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z"/>
+                            </svg>
+                         </div>
+                     </div>
+
+                     <!-- Phần dữ liệu -->
+                     <div id="grid-data">
+
+                        <!-- các cột ẩn -->
+                         <div class="col hide" FieldName="No">STT</div>
+                         <div class="col hide" FieldName="AssetCode">Mã tài sản</div>
+                         <div class="col hide" FieldName="AssetName">Tên tài sản</div>
+                         <div class="col hide" FieldName="AssetType">Loại tài sản</div>
+                         <div class="col hide" FieldName="UsedComponent">Bộ phận sử dụng</div>
+                         <div class="col hide" FieldName="Amount" DataType="Number">Số lượng</div>
+                         <div class="col hide" FieldName="OriginalPrice" DataType="Number">Nguyên giá</div>
+                         <div class="col hide" FieldName="Accumulate" DataType="Number">KM/KH lũy kế</div>
+                         <div class="col hide" FieldName="RestValue" DataType="Number">Giá trị còn lại</div>
+                        
+                         <!-- dữ liệu bảng -->
+
+                     </div>
+                     
+                     <!-- Phần phân trang -->
+                     <div class="paging-bar">
+                         <div class="page-left">
+                             <span>Tổng số 200 bản ghi</span>
+                             <select title="Số bản ghi 1 trang">
+                                <option value="20">20</option>
+                                <option value="19">19</option>
+                                <option value="18">18</option>
+                                <option value="17">17</option>
+                            </select>
+
+                            <svg title="Trang trước" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-left" viewBox="0 0 16 16">
+                                <path fill-rule="evenodd" d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z"/>
+                            </svg>
+
+                            <span>1</span>   
+                            <span>2</span>  
+                            <span>.</span>  
+                            <span>.</span>  
+                            <span>.</span>  
+                            <span>10</span>  
+
+                            <svg title="Trang sau" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16">
+                                <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
+                            </svg>
+                         </div>
+                         <div class="page-right d-flex">
+                             <div title="Tổng số lượng" class="align-flex">13</div>
+                             <div title="Tổng tiền" class="align-flex">249000</div>
+                             <div title="Tổng lũy kế" class="align-flex">1976</div>
+                             <div title="Còn lại" class="align-flex">229000</div>
+                         </div>
+                     </div>
+                 </div>   
+            </div>
+        </div>
+    </div>
+
+    <!-- Phần thư viện -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src = "https://code.jquery.com/jquery-1.10.2.js"></script>
+    <script src = "https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+
+    <!-- Phần dùng chung -->
+    <script src="assets/js/common.js"></script>
+    <script src="assets/js/data.js"></script>
+    
+    <!-- Phần riêng từng màn hình -->
+    <script src="assets/js/asset.js"></script>
+</body>
+</html>
