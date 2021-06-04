@@ -9,20 +9,56 @@
     <!-- Phần thư viện -->
     <link href = "https://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css"
          rel = "stylesheet">
-    
+
     <!-- Phần dùng chung -->
     <link rel="stylesheet" href="assets/Css/Common/common.css">
     
     <!-- Phần riêng từng màn hình -->
     <link rel="stylesheet" href="assets/Css/Views/asset.css">
-
-    
-
 </head>
 <body>
-    <div id="loading">
-        <img id="loading-image" src="./assets/img/loader.gif" alt="Loading..." />
+    
+    <!-- Confirm dialog khi người dùng muốn xóa -->
+    <div class="nofity d-flex" draggable="true">
+        <div class="notify__head d-flex">
+            <h3>Thông báo</h3>
+            <svg class="pointer" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x" viewBox="0 0 16 16">
+                <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/>
+            </svg>
+        </div>
+        <div class="notify__content flex-1">
+            <p>Bản ghi này sẽ bị xóa vĩnh viễn?</p>
+            <p>Bạn có chắc muốn xóa?</p>
+        </div>
+        <div class="notify__foot d-flex">
+            <button class="notify__btn btn--primary pointer buttonItem" type="button" Command="Cancel">Không</button>
+            <button class="notify__btn btn--danger pointer buttonItem"  type="button">Xóa</button>
+        </div>
     </div>
+
+    <!-- Form thêm mới phòng ban -->
+    <div id="formDepartmentDetail" class="form-add d-flex">
+        <div class="form-add__content">
+            <div class="form-control">
+                <label class="label" for="DepartmentCode">Mã phòng ban</label>
+                <input FieldName="DepartmentCode" type="text">
+            </div>
+            <div class="form-control">
+                <label class="label" for="DepartmentName">Tên phòng ban</label>
+                <input FieldName="DepartmentName" type="text">
+            </div>
+            <div class="form-control">
+                <label class="label" for="Description">Mô tả</label>
+                <input FieldName="Description" type="text">
+            </div>
+    
+            <div class="form-control">
+                <button class="notify__btn btn--primary pointer btnForm" Command="Cancel" type="button">Hủy</button>
+                <button class="notify__btn pointer btn--success btnForm" Command="Save" type="button">Thêm</button>
+            </div>
+        </div>
+    </div>
+
     <div class="wrapper d-flex">
         <!-- Phần sidebar trái -->
         <div class="sidebar">
@@ -404,7 +440,7 @@
             <div class="main-content">
 
                 <!-- Phần page title (toolbar) -->
-                 <div id="employeeToolbar" class="page-title pointer">
+                 <div id="departmentToolbar" class="page-title">
                      <div class="table-title">
                         <p>Danh sách tài sản</p>
                         <svg class="buttonItem" CommandType="Refresh" title="Làm mới bảng" class="icon-size" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentCol hide-itemor" class="bi bi-arrow-repeat" viewBox="0 0 16 16">
@@ -413,31 +449,23 @@
                         </svg>
                      </div>
 
-                     <div class="right-btn toggle-area">
+                     <div class="right-btn">
                         <button class="buttonItem" CommandType="Add" title="Thêm mới">
                             <span>Thêm</span>
                             <svg class="white-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentCol hide-itemor" class="bi bi-chevron-down" viewBox="0 0 16 16">
                                 <path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/>
                             </svg>
                         </button>
-                        <button class="buttonItem btn--warning" CommandType="Sửa" title="Sửa">
-                            <span>Sửa</span>
-                        </button>
-                        <button class="buttonItem btn--danger" CommandType="Delete" title="Xóa">
-                            <span>Xóa</span>
-                        </button>
-                        <button class="buttonItem" CommandType="Clone" title="Sao chép">
-                            <span>Sao chép</span>
-                        </button>
-                    </div> 
-                    <div class="right-btn-toggle buttonItem" CommandType="SlideToggle">
-                        <svg title="Thao tác" class="icon-size" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentCol hide-itemor" class="bi bi-list" viewBox="0 0 16 16">
-                            <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/>
-                        </svg>
-                        <svg class="icon-size" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentCol hide-itemor" class="bi bi-caret-down-fill" viewBox="0 0 16 16">
-                            <path d="M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z"/>
-                        </svg>
-                    </div>
+                        <div class="right-btn-toggle">
+
+                            <svg title="Thao tác" class="icon-size" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentCol hide-itemor" class="bi bi-list" viewBox="0 0 16 16">
+                                <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/>
+                            </svg>
+                            <svg class="icon-size" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentCol hide-itemor" class="bi bi-caret-down-fill" viewBox="0 0 16 16">
+                                <path d="M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z"/>
+                            </svg>
+                        </div>
+                     </div> 
                  </div>
 
                  <!-- Phần grid -->
@@ -445,7 +473,7 @@
 
                     <!-- Thanh tìm kiếm -->
                      <div class="filter-bar">
-                         <div title="Tìm kiếm theo, mã, tên, sđt, email" class="search-box">
+                         <div class="search-box">
                              <input type="text" placeholder="Tìm kiếm tài sản">
                          </div>
                          <div class="tools">
@@ -461,60 +489,18 @@
                      </div>
 
                      <!-- Phần dữ liệu -->
-                     <div id="grid-data" Url="v1/Employees" Toolbar="employeeToolbar" ItemId="EmployeeId">
-                        
-                         <!-- Form thêm mới nhân viên -->
-                        <div id="formEmployeeDetail" class="form-add d-flex">
-                            <div class="form-add__content">
-                                <div class="form-control">
-                                    <label class="label" for="DepartmentCode">Mã phòng ban</label>
-                                    <input FieldName="DepartmentCode" type="text">
-                                </div>
-                                <div class="form-control">
-                                    <label class="label" for="DepartmentName">Tên phòng ban</label>
-                                    <input FieldName="DepartmentName" type="text">
-                                </div>
-                                <div class="form-control">
-                                    <label class="label" for="Description">Mô tả</label>
-                                    <input FieldName="Description" type="text">
-                                </div>
-                        
-                                <div class="form-control">
-                                    <button class="notify__btn btn--primary pointer btnForm" Command="Cancel" type="button">Hủy</button>
-                                    <button class="notify__btn pointer btn--success btnForm" Command="Save" type="button">Thêm</button>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Confirm dialog khi người dùng muốn xóa -->
-                        <div class="nofity d-flex" draggable="true">
-                            <div class="notify__head d-flex">
-                                <h3>Thông báo</h3>
-                                <svg class="pointer" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x" viewBox="0 0 16 16">
-                                    <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/>
-                                </svg>
-                            </div>
-                            <div class="notify__content flex-1">
-                                <p>Bản ghi này sẽ bị xóa vĩnh viễn?</p>
-                                <p>Bạn có chắc muốn xóa?</p>
-                            </div>
-                            <div class="notify__foot d-flex">
-                                <button class="notify__btn btn--primary pointer buttonItem" type="button" Command="Cancel">Không</button>
-                                <button class="notify__btn btn--danger pointer buttonItem"  type="button">Xóa</button>
-                            </div>
-                        </div>
+                     <div id="grid-data" Url="v1/Employees" Toolbar="employeeToolbar" ItemId="DepartmentId">
 
                         <!-- các cột ẩn -->
-                        <div class="col hide" FieldName="EmployeeCode">Mã nhân viên</div>
-                        <div class="col hide" FieldName="FullName">Tên nhân viên</div>
-                        <div class="col hide" FieldName="Gender" EnumName="Gender" DataType="Enum">Giới tính</div>
-                        <div class="col hide" FieldName="DateOfBirth" DataType="Date" >Ngày sinh</div>
-                        <div class="col hide" FieldName="PhoneNumber">Số điện thoại</div>
-                        <div class="col hide" FieldName="Email">Email</div>
-                        <div class="col hide" FieldName="Address">Địa chỉ</div>
-                        <div class="col hide" FieldName="Salary" DataType="Number">Lương</div>
+                         <div class="col hide" FieldName="EmployeeCode">Mã nhân viên</div>
+                         <div class="col hide" FieldName="FullName">Tên nhân viên</div>
+                         <div class="col hide" FieldName="Gender">Giới tính</div>
+                         <div class="col hide" FieldName="PhoneNumber">Số điện thoại</div>
+                         <div class="col hide" FieldName="Email">Email</div>
+                         <div class="col hide" FieldName="Address">Địa chỉ</div>
+                         <div class="col hide" FieldName="Salary">Lương</div>
 
-
+                        
                          <!-- dữ liệu bảng -->
 
                      </div>
@@ -558,24 +544,26 @@
     </div>
 
     <!-- Phần thư viện -->
-    
+    <!-- <script src="https://ajaxƯgoogleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>  -->
+    <!-- <script src = "https://code.jquery.com/jquery-1.12.2.js"></script>
+    <script src = "https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script> -->
+    <!-- <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script> -->
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-    <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script> -->
-
+   
     <!-- Phần dùng chung -->
     <script src="Scripts/Common/common.js"></script>
     <script src="Scripts/Common/Constant.js"></script>
     <script src="Scripts/Common/Enumeration.js"></script>
     <script src="Scripts/Common/Resource.js"></script>
-    <script src="Scripts/Views/Sidebar/sidebar.js"></script>
+    <script src="Scripts/Views/Asset/data.js"></script>
     <script src="Scripts/Base/BaseForm.js"></script>
     <script src="Scripts/Base/BaseGrid.js"></script>
     
 
     <!-- Phần riêng từng màn hình -->
-    <script src="Scripts/Views/Employee/employeeDetail.js"></script>
-    <script src="Scripts/Views/Employee/employee.js"></script>
-
+    <script src="Scripts/Views/Department/departmentDetail.js"></script>
+    <script src="Scripts/Views/Department/department.js"></script>
+    <script src="Scripts/Views/Asset/asset.js"></script>
 </body>
 </html>

@@ -1,13 +1,52 @@
 /* Google font */
 @import url("https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap");
 
-/* Đặt lại css */
+/* ÃƒÆ’Ã¢â‚¬Å¾Ãƒâ€šÃ‚ÂÃƒÆ’Ã‚Â¡Ãƒâ€šÃ‚ÂºÃƒâ€šÃ‚Â·t lÃƒÆ’Ã‚Â¡Ãƒâ€šÃ‚ÂºÃƒâ€šÃ‚Â¡i css */
 *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: 'Nunito', sans-serif;
     font-weight: 600;
+}
+
+#loading {
+    display: none;
+    width: 100%;
+    height: 100%;
+    /* top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0; */
+    position: fixed;
+    opacity: 0.7;
+    background-color: #fff;
+    z-index: 99;
+    text-align: center;
+}
+  
+#loading-image {
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    z-index: 100;
+}
+
+.notify__btn {
+    margin: 0px 5px;
+}
+
+.selected-row {
+    background-color: var(--text-colo-row-hover);
+}
+
+.navbar-item-empty {
+    flex: 1;
 }
 
 body, html {
@@ -19,7 +58,7 @@ body, html {
 }
 
 
-/* Biến lưu mã màu hay dùng trong trang */
+/* BiÃƒÆ’Ã‚Â¡Ãƒâ€šÃ‚ÂºÃƒâ€šÃ‚Â¿n lÃƒÆ’Ã¢â‚¬Â Ãƒâ€šÃ‚Â°u mÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â£ mÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â u hay dÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¹ng trong trang */
 :root {
     --text-color-black:#000000;
     --text-color-white:#ffffff;
@@ -27,19 +66,25 @@ body, html {
     --main-item-color-hover: #1AA4C8;
     --sub-item-color-hover: #48586C;
     --bg-color:#F5F6FA;
+    --text-colo-row-hover: #eff1f3
 }
 
 :root {
     z-index: 999;
-    --sidebar-width:23%;
+    --sidebar-width: 265px;
     --sidebar-font-size: 1.1rem;
     --appname-font-size: 2rem;
     --font-weight: 600;
     --nav-icon-left-width:70px;
+    --color-danger:#DB342E;
+    --color-warning: #d8df10;
 }
 
 
 /* chung */
+button:hover {
+    opacity: 0.8;
+}
 .align-right {
     text-align: right;
 }
@@ -51,6 +96,10 @@ body, html {
 
 .align-center {
     text-align: center;
+}
+
+.pointer {
+    cursor: pointer;
 }
 
 
@@ -80,41 +129,125 @@ body, html {
     display: flex;
 }
 
+.flex-1 {
+    flex: 1;
+}
+
+.btn--success {
+    background-color: limegreen;
+    color: white;
+}
+
+.btn--danger  {
+    color: white !important;
+    background-color: var(--color-danger) !important;
+}
+
+.btn--warning  {
+    color: white !important;
+    background-color: var(--color-warning) !important;
+}
+
+.btn--primary {
+    background-color: #e5e5e5;
+}
 
 .wrapper {
+    /* filter: blur(1px); */
     width: 100%;
     height: 100%;
 }
 
-/* tooltip */
-.relative {
-    position: relative;
+/* form add css */
+.form-add {
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
+    background-color: var(--bg-color);
+    z-index: 1000;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    margin: auto;
+    position: fixed;
+    height: 350px;
+    width: 370px;
+   display: none;
 }
 
-.tooltip {
-    position: relative;
-    display: inline-block;
-    border-bottom: 1px dotted black;
+.form-add__content {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
 }
-  
-.tooltip .tooltiptext {
-    visibility: hidden;
-    width: auto;
-    height: auto;
-    white-space: nowrap;
-    background-color: rgb(112, 112, 112);
-    color: #fff;
+
+.form-add .form-control {
+    display: flex;
+    justify-content: space-evenly;
     text-align: center;
-    border-radius: 6px;
-    padding: 5px 5px;
-
-    /* Position the tooltip */
-    position: absolute;
-    z-index: 1;
 }
 
-.tooltip:hover .tooltiptext {
-    visibility: visible;
+.form-control .label {
+    min-width: 110px;
+}
+
+.form-control input {
+
+}
+
+
+/* notification css */
+
+.nofity {
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
+    display: none;
+    border-radius: 5px;
+    font-size: var(--sidebar-font-size);
+    background-color: var(--bg-color);
+    padding: 0 10px;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    margin: auto;
+    position: fixed;
+    width: 470px;
+    height: 150px;
+    justify-content: space-between;
+    flex-direction: column;
+}
+
+.notify__head {
+    border-bottom: 1px solid rgba(179, 179, 179, 0.5);
+    align-items: center;
+    margin: auto 0;
+    justify-content: space-between;
+    height: 40px;
+  
+}
+
+.notify__content {
+    padding: 10px 0;
+}
+
+.notify__foot {
+    align-items: center;
+    justify-content: flex-end;
+    float: right;
+    height: 40px;
+}
+
+button.notify__btn  {
+    border: 0px;
+    border-radius: 3px;
+    height: 30px;
+    width: 75px;
+}
+
+button.notify__btn:hover {
+    opacity: 0.8;
 }
 
 /* responsive website */
@@ -137,11 +270,11 @@ body, html {
 
 .nav-child-state {
     z-index: 999;
-    left: var(--sidebar-font-size + 4);
+    left: 70px;
+    top: 0;
     width: 250px !important;
-    display: block;
+    height: 100%;
     position: absolute;
-    transition: width 0.2s;
 }
 
 .nav-parent-state {
@@ -159,8 +292,11 @@ body, html {
 }
 
 .sidebar .navbar {
-    padding: 15px 15px 0 10px;
+    height: 100%;
+    display: flex;
+    padding: 15px 15px 10px 5px;
     box-sizing: border-box;
+    flex-direction: column;
 }
 
 #app-logo {
@@ -168,6 +304,7 @@ body, html {
 }
 
 #app-logo .logo-box {
+    margin: auto;
     display: inline-flex;
     width: 45px;
     height: 45px;
@@ -192,9 +329,7 @@ body, html {
     line-height: 40px;
 }
 
-.sidebar .navbar-item:last-child {
-    
-}
+.sidebar .navbar-item:last-child {}
 
 .sidebar .navbar-item:hover {
     cursor: pointer;
@@ -226,8 +361,13 @@ body, html {
     fill: var(--text-color-grey);
 }
 
+.navbar-subitem.icon-left {
+    display: flex;
+    min-width: 60px;
+}
+
 .sidebar .icon-left svg {
-    margin: auto 10px;
+    margin: auto;
     width: 24px !important;
     height: 24px !important;
 }
@@ -244,6 +384,10 @@ body, html {
 }
 
 /* subitem dropdown css */
+.subitem-dropdown {
+    display: none;
+}
+
 .subitem-dropdown ul {
     background-color: #33455B;
     width: 100%;
@@ -261,7 +405,7 @@ body, html {
 }
 
 .subitem-dropdown ul li:hover svg {
-    display: inline-block;
+    display: block;
 }
 
 .subitem-dropdown ul li a {
@@ -276,13 +420,13 @@ body, html {
 }
 
 .subitem-dropdown ul li a span {
-    padding-left: 65px;
     text-align: left;
     flex: 1;
 }
 
 /* content css */
 .content {
+    flex: 1;
     width: 100%;
     height: 100%;
     /* overflow-y: auto; */
@@ -357,11 +501,15 @@ body, html {
 }
 
 .main-content .page-title {
+    justify-content: space-between;
+    display: flex;
     width: 100%;
     height: 50px;
+    align-items: center;
 }
 
 .main-content .page-title .table-title {
+    flex: 1;
     display: inline-flex;
     align-items: center;
 }
@@ -376,7 +524,6 @@ body, html {
 .page-title .right-btn {
     align-items: center;
     display: flex;
-    float: right;
 }
 
 .page-title .right-btn button {
@@ -384,7 +531,7 @@ body, html {
     width: 100px;
     height: 35px;
     border: none;
-    margin-top: 7px;
+    margin-right: 7px;
     display: flex;
     justify-content: space-evenly;
     color: var(--text-color-white);
@@ -418,6 +565,9 @@ body, html {
 
 /* grid css */
 .main-content .grid {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     box-shadow: 2px 2px 5px 3px rgba(0, 0, 0, 0.2);
     border-radius: 5px;
     box-sizing: border-box;
@@ -438,7 +588,7 @@ body, html {
 .grid .filter-bar input {
     padding: 0 30px;
     background-repeat: no-repeat;
-    background-image: url('../icon/search.png');
+    background-image: url('../../icon/search.png');
     background-position: 10px 7px;
     width: 300px;
     height: 35px;
@@ -451,7 +601,8 @@ body, html {
 }
 
 #grid-data {
-    max-height: 500px;
+    flex: 1;
+    overflow-x: auto;
     overflow-y: auto;
 }
 
@@ -464,7 +615,7 @@ body, html {
 }
 
 #grid-data table tbody tr:hover {
-    background-color: var(--text-color-grey);
+    background-color: var(--text-colo-row-hover);
 }
 
 #grid-data table thead tr {
@@ -474,6 +625,7 @@ body, html {
 #grid-data table td {
     padding: 10px 10px;
     min-width: 30px;
+    max-width: 300px;
     overflow: auto;
     line-height: 30px;
     border-bottom: 1px solid rgba(202, 202, 202, 0.5);
@@ -484,7 +636,6 @@ body, html {
     display: flex;
     justify-content: space-between;
     height: 40px;
-    position: absolute;
     bottom: 10px;
     cursor: pointer;
     width: 100%;
@@ -509,7 +660,3 @@ body, html {
 .paging-bar .page-right {
     padding-right: 50px;
 }
-
-
-
-

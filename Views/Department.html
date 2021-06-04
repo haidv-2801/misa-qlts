@@ -9,14 +9,12 @@
     <!-- Phần thư viện -->
     <link href = "https://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css"
          rel = "stylesheet">
-    
+
     <!-- Phần dùng chung -->
     <link rel="stylesheet" href="assets/Css/Common/common.css">
     
     <!-- Phần riêng từng màn hình -->
     <link rel="stylesheet" href="assets/Css/Views/asset.css">
-
-    
 
 </head>
 <body>
@@ -404,7 +402,7 @@
             <div class="main-content">
 
                 <!-- Phần page title (toolbar) -->
-                 <div id="employeeToolbar" class="page-title pointer">
+                 <div id="employeeToolbar" class="page-title">
                      <div class="table-title">
                         <p>Danh sách tài sản</p>
                         <svg class="buttonItem" CommandType="Refresh" title="Làm mới bảng" class="icon-size" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentCol hide-itemor" class="bi bi-arrow-repeat" viewBox="0 0 16 16">
@@ -413,7 +411,7 @@
                         </svg>
                      </div>
 
-                     <div class="right-btn toggle-area">
+                     <div class="right-btn">
                         <button class="buttonItem" CommandType="Add" title="Thêm mới">
                             <span>Thêm</span>
                             <svg class="white-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentCol hide-itemor" class="bi bi-chevron-down" viewBox="0 0 16 16">
@@ -426,18 +424,16 @@
                         <button class="buttonItem btn--danger" CommandType="Delete" title="Xóa">
                             <span>Xóa</span>
                         </button>
-                        <button class="buttonItem" CommandType="Clone" title="Sao chép">
-                            <span>Sao chép</span>
-                        </button>
-                    </div> 
-                    <div class="right-btn-toggle buttonItem" CommandType="SlideToggle">
-                        <svg title="Thao tác" class="icon-size" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentCol hide-itemor" class="bi bi-list" viewBox="0 0 16 16">
-                            <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/>
-                        </svg>
-                        <svg class="icon-size" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentCol hide-itemor" class="bi bi-caret-down-fill" viewBox="0 0 16 16">
-                            <path d="M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z"/>
-                        </svg>
-                    </div>
+                        <div class="right-btn-toggle">
+
+                            <svg title="Thao tác" class="icon-size" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentCol hide-itemor" class="bi bi-list" viewBox="0 0 16 16">
+                                <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/>
+                            </svg>
+                            <svg class="icon-size" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentCol hide-itemor" class="bi bi-caret-down-fill" viewBox="0 0 16 16">
+                                <path d="M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z"/>
+                            </svg>
+                        </div>
+                     </div> 
                  </div>
 
                  <!-- Phần grid -->
@@ -445,7 +441,7 @@
 
                     <!-- Thanh tìm kiếm -->
                      <div class="filter-bar">
-                         <div title="Tìm kiếm theo, mã, tên, sđt, email" class="search-box">
+                         <div class="search-box">
                              <input type="text" placeholder="Tìm kiếm tài sản">
                          </div>
                          <div class="tools">
@@ -507,12 +503,11 @@
                         <!-- các cột ẩn -->
                         <div class="col hide" FieldName="EmployeeCode">Mã nhân viên</div>
                         <div class="col hide" FieldName="FullName">Tên nhân viên</div>
-                        <div class="col hide" FieldName="Gender" EnumName="Gender" DataType="Enum">Giới tính</div>
-                        <div class="col hide" FieldName="DateOfBirth" DataType="Date" >Ngày sinh</div>
+                        <div class="col hide" FieldName="Gender">Giới tính</div>
                         <div class="col hide" FieldName="PhoneNumber">Số điện thoại</div>
                         <div class="col hide" FieldName="Email">Email</div>
                         <div class="col hide" FieldName="Address">Địa chỉ</div>
-                        <div class="col hide" FieldName="Salary" DataType="Number">Lương</div>
+                        <div class="col hide" FieldName="Salary">Lương</div>
 
 
                          <!-- dữ liệu bảng -->
@@ -558,11 +553,10 @@
     </div>
 
     <!-- Phần thư viện -->
-    
+   
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-    <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script> -->
-
+   
     <!-- Phần dùng chung -->
     <script src="Scripts/Common/common.js"></script>
     <script src="Scripts/Common/Constant.js"></script>
