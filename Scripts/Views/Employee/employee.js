@@ -9,8 +9,9 @@ class Employee extends BaseGrid {
         let me = this,
             config = {
                 urlAdd: 'v1/Employees',
-                urlEdit: '/v1/Employees',
-                urlDelete: '/v1/Employees',
+                urlEdit: 'v1/Employees',
+                urlDelete: 'v1/Employees',
+                entity: 'nhân viên'
             };
 
         Object.assign(me, config);
@@ -18,7 +19,7 @@ class Employee extends BaseGrid {
 
     initFormDetail(formId) {
         let me = this;
-
+       
         me.formDetail  = new EmployeeDetail(formId);
     }
 }

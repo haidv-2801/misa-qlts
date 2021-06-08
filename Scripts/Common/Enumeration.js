@@ -14,3 +14,13 @@ Enumeration.Gender = {
     Male: 1,    //Nam
     Other: 2,   //Khác
 };
+
+
+//Giới tính
+Enumeration.Keyboard = {
+    Enter: 13,
+    Esc: 27,
+    ArrawUp: 38,
+    ArrawDown: 40
+};
+

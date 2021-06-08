@@ -10,16 +10,15 @@ class BaseGrid {
 
         //hàm loaddata từ server
         me.getDataServer();
-
+        
         //thuộc tính formdetail
         me.formDetail = null;
+        me.cacheDataGrid = null;
 
     }
 
     /**
-     * 
      * Hàm tạo base form
-     * 
      * DVHAI 03/06/2021
      */
     initFormDetail(formId) {
@@ -42,37 +41,79 @@ class BaseGrid {
 
         //hàm cho phép multiselect trên table
         me.multiSelect();
+
+        //sự kiện keyup
+        me.initKeyupEvent();
         
     }
 
     /**
+     * Sự kiện key up trên grid
+     * DVHAI 04/06/2021
+     */
+    initKeyupEvent() {
+        let me = this;
+
+        //di chuyển row's hightlight  lên trên
+        me.moveHightlightUp();
+
+        //di chuyển row's hightlight  lên trên
+        me.moveHightlightDown();
+    }
+
+    /**
+     * hàm cho phép move up row's hightlight
+     * DVHAI 04/06/2021
+     */
+    moveHightlightUp() {
+        let me = this;
+
+        me.grid.on('keyup', function(e) {
+            if(e.keycode == Enumeration.Keyboard.ArrawUp) {
+                
+            }
+        });
+    }
+
+    /**
+     * hàm cho phép move down row's hightlight
+     * DVHAI 04/06/2021
+     */
+    moveHightlightDown() {
+        let me = this;
+
+        me.grid.on('keyup', function(e) {
+            if(e.keycode == Enumeration.Keyboard.ArrawDown) {
+                
+            }
+        });
+    }
+
+    /**
      * hàm cho phép multiselect trên table
-     * 
      * DVHAI 04/06/2021
      */
     multiSelect() {
         let me = this;
 
-        me.grid.find('table tbody').selectable();
+        me.grid.find("table tbody").selectable();
     }
 
     /**
-     * 
      * Hàm chứa các sự kiện của toolbar
-     * 
      * DVHAI 02/06/2021
      */
      initEventsToolbar() {
-    
         let me = this,
             toolbarId = me.grid.attr("Toolbar"),
             toolbar = $(`#${toolbarId}`);
-        
+
+            
         if(toolbar.length > 0) {
             toolbar.find(".buttonItem").on("click", function () {
-                let CommandType = $(this).attr("CommandType"),
+                let CommandType = $(this).attr("commandtype"),
                     fireEvent = null;
-                 
+                    
                 switch(CommandType) {
                     case Resource.CommandType.Add:
                        fireEvent = me.add;
@@ -110,7 +151,6 @@ class BaseGrid {
 
     /**
      * Hàm cho phép ẩn hiện toolbar
-     * 
      * DVHAI 04/06/2021 
      */
     slideToggle() {
@@ -122,18 +162,17 @@ class BaseGrid {
     }
     
     /**
-     * 
      * Hàm thêm mới bản ghi
-     * 
      * DVHAI 02/06/2021
      */
     add() {
-       
+        
         let me = this,
             param = {
                 Parent: me,
                 FormMode: Enumeration.FormMode.Add,
-                Record: {}
+                Record: {},
+                AllRecord: me.cacheDataGrid || []
             };
            
         if(me.formDetail) {
@@ -143,18 +182,17 @@ class BaseGrid {
 
     
     /**
-     * 
      * Hàm sửa bản ghi
-     * 
      * DVHAI 02/06/2021
      */
      edit() {
         let me = this,
             param = {
                 Parent: me,
-                FormMode: Resource.FormMode.edit,
-                Record: {...me.getSelectedRecord()},
+                FormMode: Enumeration.FormMode.Edit,
+                Record: JSON.parse(JSON.stringify(me.getSelectedRecord())),
                 ItemId: me.ItemId,
+                AllRecord: me.cacheDataGrid || []
             };
         
         if(me.formDetail) {
@@ -163,9 +201,47 @@ class BaseGrid {
     }
 
     /**
-     * 
+     * Hàm xóa bản ghi
+     * DVHAI 04/06/2021
+     */
+     delete() {
+        let me = this,
+            method = Resource.Method.Delete,
+            itemId = me.ItemId,
+            record = {...me.getSelectedRecord()},
+            url = `${Constant.urlPrefix}${me.urlDelete}`,
+            urlFull = `${url}/${record[itemId]}`;
+        
+        //nếu chưa có bản ghi nào hoặc chưa đc họn
+        if(!record)
+            return;
+       
+       
+        swal({
+            title: `Bạn có chắc muốn xóa ${me.entity} này?`,
+            text: "Không thể khôi phục sau khi xóa!",
+            icon: "warning",
+            buttons: true,
+            dangerMode: true,
+            })
+            .then((willDelete) => {
+            if (willDelete) {
+                CommonFn.Ajax(urlFull, method, {}, function(){
+                    swal({
+                        title: `Xóa thành công ${me.entity}`,
+                        icon: "success",
+                        timer: 3000
+                    });
+                    me.refresh();
+                });
+            } else {
+                //nothing
+            }
+        });  
+    }
+
+    /**
      * Hàm lấy ra bản ghi được select
-     * 
      * DVHAI 02/06/2021
      */
     getSelectedRecord() {
@@ -174,7 +250,7 @@ class BaseGrid {
             selectedList = me.grid.find(".selected-row");
 
         //nếu có nhiều hơn 1 bản ghi trả về thằng đầu
-        if(selectedList.length > 1) {
+        if(selectedList.length > 0) {
             data = selectedList.eq(0).data("value");
         }
 
@@ -182,22 +258,18 @@ class BaseGrid {
     }
 
     /**
-     * 
      * Refresh lại dữ liệu trên bảng
-     * 
      * DVHAI 02/06/2021
      */
-
     refresh() {
         let me = this;
+
         me.getDataServer();
     }
  
 
     /**
-     * 
      * Hàm sự kiện click row trong bảng
-     * 
      * DVHAI 02/06/2021
      */
     eventClickRow() {
@@ -211,9 +283,7 @@ class BaseGrid {
      }
 
      /**
-     * 
      * Hàm sự kiện check row trong bảng
-     * 
      * DVHAI 03/06/2021
      */
     eventCheckRow() {
@@ -253,13 +323,10 @@ class BaseGrid {
      }
 
     /**
-     * 
      * Hàm sự kiện check tất cả các dòng nếu head
      * được check
-     * 
      * DVHAI 03/06/2021
      */
-
      toggleCheck(head) {
         let me = this;
 
@@ -268,19 +335,19 @@ class BaseGrid {
 
 
     /**
-     * 
      * Hàm lấy data từ server
-     * 
      * DVHAI 02/06/2021
      */
-
     getDataServer() {
         let me = this,
             url = me.grid.attr("Url"),
             fullUrl = `${Constant.urlPrefix}${url}`;
 
         CommonFn.Ajax(fullUrl, Resource.Method.Get, {}, (response) => {
-            if(response) {
+            if(response) { 
+                //lưu lại tất cả các bản ghi
+                me.cacheDataGrid = response;
+
                 me.loadData(response);
             } else {
                 alert("loi server");
@@ -288,11 +355,8 @@ class BaseGrid {
         });
     }
 
-
     /**
-     * 
      * Hàm load bảng
-     * 
      * DVHAI 30/05/2021
      */
     loadData(data) {
@@ -313,12 +377,8 @@ class BaseGrid {
         me.afterBinding();
     }
 
-
-    
     /**
-     * 
      * Hàm làm một số thứ sau khi binding dữ liệu xong
-     * 
      * DVHAI 02/06/2021
      */
     afterBinding() {
@@ -331,11 +391,8 @@ class BaseGrid {
         me.grid.find("tbody tr").eq(0).addClass("selected-row");
     }
 
-
     /**
-     * 
      * Hàm load các tên cột
-     * 
      * DVHAI 30/05/2021
      */
     loadThead() {
@@ -361,21 +418,24 @@ class BaseGrid {
         return thead;
     }
 
-
      /**
-     * 
      * Hàm load phần thân bảng
-     * 
      * DVHAI 30/05/2021
      */
     loadTbody(data) {
         let me = this,
-            tbody = $("<tbody></tbody>");
+            tbody = $('<tbody></tbody>');
         
         if(data && data.length > 0) {
             data.filter(function(item){
-                let tr = $('<tr><td><input type="checkbox"></td></tr>');
-               
+                let tr = $('<tr></tr>');
+
+                //put data thô vào data-value
+                tr.data("value", item);
+
+                //thêm cột checkbox
+                tr.append('<td><input type="checkbox"></td>');
+
                 //duyệt trên các cột ảo đề map value tương ứng
                 me.grid.find(".col").each(function() {
                     let fieldName = $(this).attr("FieldName"),
@@ -398,9 +458,7 @@ class BaseGrid {
     }
 
     /**
-     * 
      * Hàm lấy class name theo kiểu dữ liệu
-     * 
      * DVHAI 30/05/2021
      */
     getClassName(dataType) {
@@ -419,6 +477,10 @@ class BaseGrid {
         return className;
     }
 
+    /**
+     * Hàm format value từ dạng thô sang chuẩn
+     * DVHAI 30/05/2021
+     */
     formatValue(data, dataType, column) {
         let me = this;
         

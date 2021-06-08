@@ -8,19 +8,48 @@ class BaseForm {
     }
 
      /**
-     * 
      * Hàm khởi tạo các sự kiện
-     * 
      * DVHAI 02/06/2021
      */
-
     initEvents() {
         let me = this;
 
+        //sự kiện button click trên form
         me.initEventButtonClick();
 
         //Hàm cho phép kéo thả, di chuyển form
         me.draggable();
+
+        // sự kiện key up trên form
+        me.initKeyupEvent();
+
+    }
+
+    /**
+     * Hàm tùy chỉnh sự kiện trên form
+     * DVHAI 04/06/2021
+     */
+     initKeyupEvent() {
+        let me = this;
+
+        me.keyupEnter();
+     }
+
+    /**
+     * Sự kiện enter trên form thì sẽ save
+     * DVHAI 04/06/2021
+     */
+    keyupEnter() {
+        let me = this;
+
+        me.Form.on("keyup", function(e){
+            if(e.keyCode == Enumeration.Keyboard.Enter) {
+                me.save();
+            } else if(e.keyCode == Enumeration.Keyboard.Esc) {
+                me.cancel();
+            }
+        });
+       
     }
 
     /**
@@ -30,7 +59,7 @@ class BaseForm {
     draggable() {
         let me = this;
         
-        me.Form.draggable();
+        me.Form.draggable({ handle: ".form-head" });
     }
     
     
@@ -50,6 +79,7 @@ class BaseForm {
                 value = new Date(value);
                 break;
             case Resource.DataTypeColumn.Number:
+                value = CommonFn.removeSymbol(value);
                 value = parseInt(value);
                 break;
             case Resource.DataTypeColumn.Enum:
@@ -76,8 +106,8 @@ class BaseForm {
                 fieldName = control.attr("FieldName"),
                 dataType = control.attr("DataType"),
                 value = data[fieldName];
-                
-            control.setValueControl(control, value, dataType);
+            
+            me.setValueControl(control, value, dataType);
         });
     }
 
@@ -93,6 +123,8 @@ class BaseForm {
          switch(dataType) {
             case Resource.DataTypeColumn.Date:
                 value = CommonFn.convertDate(value);
+            case Resource.DataTypeColumn.Number:
+                value = CommonFn.formatMoneyVer2(value);
             break;
          }
 
@@ -137,6 +169,7 @@ class BaseForm {
             isValid = me.validateForm();
         
         if(isValid) {
+            debugger
             var data = me.getDataForm();
             me.saveData(data);
         }
@@ -150,23 +183,33 @@ class BaseForm {
      * DVHAI 02/06/2021
      */
     saveData(data) {
-        debugger
         let me = this,
             url = me.Parent.urlAdd,
             method = Resource.Method.Post,
             urlFull = `${Constant.urlPrefix}${url}`;
         
         if(me.FormMode == Enumeration.FormMode.Edit) {
+            debugger
             url = me.Parent.urlEdit;
             method = Resource.Method.Put;
-            urlFull = `${Constant.urlPrefix}${url}/${me.ItemId}`;
+            urlFull = `${Constant.urlPrefix}${url}/${data[me.ItemId]}`;
         }
-
+        debugger
         CommonFn.Ajax(urlFull, method, data, function(response){
             if(response) {
+               
+                //thông báo thành công
+                swal({
+                    title:`Thêm thành công ${me.Parent.entity}`,
+                    text:'',
+                    icon:'success'
+                });
+
+                //load lại data mới
                 me.Parent.getDataServer();
-                me.Cancel();
-                alert("thanh cong");
+
+                //đóng form
+                me.cancel();
             } else {
                 alert("loi");
             }
@@ -190,7 +233,7 @@ class BaseForm {
         }
 
         if(isValid) {
-            isValid = me.validateNumber();
+            // isValid = me.validateNumber();
         }
 
         if(isValid) {
@@ -201,7 +244,7 @@ class BaseForm {
             isValid = me.validateCustom();
         }
 
-        return true;
+        return isValid;
     }
 
     /**
@@ -313,7 +356,8 @@ class BaseForm {
 
             data[fieldName] = value;
         });
-
+        var test = data;
+        debugger
         return data;
     }
 
@@ -343,23 +387,24 @@ class BaseForm {
 
         me.show();
 
-        // me.Form.draggable({handle:})
-
+        //tự động focus ô đầu tiên
+        me.autoFocus()
+        
         if(me.FormMode == Enumeration.FormMode.Edit) {
             me.bindingData(me.Record);
         }
     }
 
-     /**
+    /**
      * 
-     * Hàm mở form thêm,sửa
-     * DVHAI 02/06/2021
+     * Hàm tự động focus ô đầu tiên khi form được mở
+     * DVHAI 04/06/2021
      *
      */
-    show() {
+    autoFocus() {
         let me = this;
 
-        me.Form.show();
+        me.Form.find("input[type!=hidden]:first").focus();
     }
 
     /**

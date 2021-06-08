@@ -1,0 +1,85 @@
+*{
+    /* box-sizing: border-box;
+    margin: 0; */
+}
+
+@font-face {
+    font-family: "GoogleRegular";
+    src: url(./Resource/font/GoogleSans-Regular.otf);
+}
+
+body {
+    background-color: whitesmoke;
+}
+
+:root {
+    --Items-text-size: 13px;
+    --Color-text: #000000;
+    --items-height: 40px;
+    --BG-hover: #E9EBEE;
+    --BG-Selected: #019160;
+}
+
+.dropdown {
+    background-color: white;
+    position: fixed;
+    font-family: GoogleRegular;
+    font-size: 13px;
+    color: var(--Color-text);
+    cursor: pointer;
+    height: fit-content;
+    width: 210px;
+}
+
+.items {
+    display: none;
+    background-color: white;
+    border-radius: 4px;
+    padding: 3px 0;
+}
+
+.bg {
+   border: 1px solid var(--BG-Selected) !important; 
+}
+
+.title {
+    border-radius: 4px;
+    border: 1px solid #BBBBBB;
+    height: 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.title span {
+    padding-left: 16px;
+}
+
+.title svg {
+    padding: 0 12px;
+}
+
+.dropdown__item {
+    align-items: center;
+    display: flex;
+    height: 40px;
+    line-height: 40px;
+    justify-content: space-between;
+}
+
+.dropdown__item span {
+    flex: 1;
+}
+
+.dropdown__item svg {
+   padding: 0 10px;
+}
+
+.dropdown__item:hover {
+   background-color: var(--BG-hover);
+}
+
+.dropdown__item:active {
+    background-color: var(--BG-Selected);
+    color: white;
+}

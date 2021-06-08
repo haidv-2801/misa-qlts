@@ -7,14 +7,14 @@
     <title>Document</title>
 
     <!-- Phần thư viện -->
-    <link href = "https://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css"
-         rel = "stylesheet">
-    
-    <!-- Phần dùng chung -->
-    <link rel="stylesheet" href="assets/Css/Common/common.css">
+    <link rel = "stylesheet" href = "https://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css">
+    <link rel="stylesheet" href="./assets/lib/bootstrap-5.0.1-dist/css/bootstrap.min.css">
+
+     <!-- Phần dùng chung  -->
+    <link rel="stylesheet" href="assets/css/common/common.css">
     
     <!-- Phần riêng từng màn hình -->
-    <link rel="stylesheet" href="assets/Css/Views/asset.css">
+    <link rel="stylesheet" href="assets/css/views/asset.css">
 
     
 
@@ -23,7 +23,7 @@
     <div id="loading">
         <img id="loading-image" src="./assets/img/loader.gif" alt="Loading..." />
     </div>
-    <div class="wrapper d-flex">
+    <div class="wrapper dd-flex">
         <!-- Phần sidebar trái -->
         <div class="sidebar">
             <div class="navbar">
@@ -362,7 +362,7 @@
         <!-- Phần content phải -->
         <div class="content">
             <!-- Phần header -->
-            <div class="header d-flex">
+            <div class="header dd-flex">
 
                 <!-- Phần trái header -->
                 <div class="header-title">
@@ -406,21 +406,22 @@
                 <!-- Phần page title (toolbar) -->
                  <div id="employeeToolbar" class="page-title pointer">
                      <div class="table-title">
-                        <p>Danh sách tài sản</p>
-                        <svg class="buttonItem" CommandType="Refresh" title="Làm mới bảng" class="icon-size" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentCol hide-itemor" class="bi bi-arrow-repeat" viewBox="0 0 16 16">
+                        <span>Danh sách tài sản</span>
+
+                        <svg class="buttonItem bi bi-arrow-repeat" CommandType="Refresh" title="Làm mới bảng"   class="icon-size" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentCol hide-itemor"  viewBox="0 0 16 16">
                             <path d="M11.534 7h3.932a.25.25 0 0 1 .192.41l-1.966 2.36a.25.25 0 0 1-.384 0l-1.966-2.36a.25.25 0 0 1 .192-.41zm-11 2h3.932a.25.25 0 0 0 .192-.41L2.692 6.23a.25.25 0 0 0-.384 0L.342 8.59A.25.25 0 0 0 .534 9z"/>
                             <path fill-rule="evenodd" d="M8 3c-1.552 0-2.94.707-3.857 1.818a.5.5 0 1 1-.771-.636A6.002 6.002 0 0 1 13.917 7H12.9A5.002 5.002 0 0 0 8 3zM3.1 9a5.002 5.002 0 0 0 8.757 2.182.5.5 0 1 1 .771.636A6.002 6.002 0 0 1 2.083 9H3.1z"/>
                         </svg>
                      </div>
 
                      <div class="right-btn toggle-area">
-                        <button class="buttonItem" CommandType="Add" title="Thêm mới">
+                        <button class="buttonItem" commandtype="Add"  title="Thêm mới">
                             <span>Thêm</span>
                             <svg class="white-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentCol hide-itemor" class="bi bi-chevron-down" viewBox="0 0 16 16">
                                 <path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/>
                             </svg>
                         </button>
-                        <button class="buttonItem btn--warning" CommandType="Sửa" title="Sửa">
+                        <button class="buttonItem btn--warning" CommandType="Edit" title="Sửa">
                             <span>Sửa</span>
                         </button>
                         <button class="buttonItem btn--danger" CommandType="Delete" title="Xóa">
@@ -430,6 +431,7 @@
                             <span>Sao chép</span>
                         </button>
                     </div> 
+                    
                     <div class="right-btn-toggle buttonItem" CommandType="SlideToggle">
                         <svg title="Thao tác" class="icon-size" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentCol hide-itemor" class="bi bi-list" viewBox="0 0 16 16">
                             <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/>
@@ -462,43 +464,78 @@
 
                      <!-- Phần dữ liệu -->
                      <div id="grid-data" Url="v1/Employees" Toolbar="employeeToolbar" ItemId="EmployeeId">
-                        
-                         <!-- Form thêm mới nhân viên -->
-                        <div id="formEmployeeDetail" class="form-add d-flex">
-                            <div class="form-add__content">
-                                <div class="form-control">
-                                    <label class="label" for="DepartmentCode">Mã phòng ban</label>
-                                    <input FieldName="DepartmentCode" type="text">
-                                </div>
-                                <div class="form-control">
-                                    <label class="label" for="DepartmentName">Tên phòng ban</label>
-                                    <input FieldName="DepartmentName" type="text">
-                                </div>
-                                <div class="form-control">
-                                    <label class="label" for="Description">Mô tả</label>
-                                    <input FieldName="Description" type="text">
-                                </div>
-                        
-                                <div class="form-control">
-                                    <button class="notify__btn btn--primary pointer btnForm" Command="Cancel" type="button">Hủy</button>
-                                    <button class="notify__btn pointer btn--success btnForm" Command="Save" type="button">Thêm</button>
+                       
+                        <!-- Form thêm mới nhân viên -->
+                        <div id="formEmployeeDetail" class="form-add">
+                            <div class="form-control form-head">
+                                <h3>Thêm nhân viên</h3>
+                                <span type="button" class="btnForm" command="Cancel">X</span>
+                            </div>
+                            <div class="form-control">
+                                <div class="row">
+                                    <div class="form-group col-md-6">
+                                        <label class="col-form-label" for="EmployeeCode" >Mã nhân viên</label> 
+                                        <span class="color-red">(*)</span>
+                                        <input class="form-control" FieldName="EmployeeCode" Required="true" type="text">
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label class="col-form-label" for="FullName">Tên nhân viên</label> 
+                                        <span class="color-red">(*)</span>
+                                        <input class="form-control" FieldName="FullName" Required="true" type="text">
+                                    </div>
+                                   
+                                    <div class="form-group col-md-6">
+                                        <label class="col-form-label" for="Gender">Giới tính</label>
+                                        <select class="form-select" FieldName="Gender">
+                                            <option value="0">Nữ</option>
+                                            <option value="1" selected>Nam</option>
+                                            <option value="2">Khác</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label class="col-form-label" for="dateOfBirth">Ngày sinh</label>
+                                        <input class="form-control" DataType="Date" FieldName="DateOfBirth" type="date">
+                                    </div>
+                                   
+                                    <div class="form-group col-md-6">
+                                        <label class="col-form-label" for="PhoneNumber">Số điện thoại</label>
+                                        <span class="color-red">(*)</span>
+                                        <input class="form-control" Required="true" min="0" FieldName="PhoneNumber" type="number">
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label class="col-form-label" for="Email">Email</label>
+                                        <input class="form-control" FieldName="Email" Required="true" type="text">
+                                    </div>
+
+                                    <div class="form-group col-md-6">
+                                        <label class="col-form-label" for="Address">Địa chỉ</label>
+                                        <input class="form-control" FieldName="Address" type="text">
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label class="col-form-label" for="Salary">Lương</label>
+                                        <input class="form-control" FieldName="Salary" DataType="Number" type="text">
+                                    </div>
+                                   
                                 </div>
                             </div>
+                            <div class="form-control form-foot">
+                                <button type="button" class="btnForm btn btn-secondary" command="Cancel">Hủy</button>
+                                <button type="button" class="btnForm btn btn-success" command="Save">Lưu</button>
+                            </div>
                         </div>
-
                         <!-- Confirm dialog khi người dùng muốn xóa -->
-                        <div class="nofity d-flex" draggable="true">
-                            <div class="notify__head d-flex">
+                        <div class="nofity dd-flex" draggable="true">
+                            <div class="notify__head dd-flex">
                                 <h3>Thông báo</h3>
                                 <svg class="pointer" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x" viewBox="0 0 16 16">
                                     <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/>
                                 </svg>
                             </div>
-                            <div class="notify__content flex-1">
+                            <div class="notify__content flex-11">
                                 <p>Bản ghi này sẽ bị xóa vĩnh viễn?</p>
                                 <p>Bạn có chắc muốn xóa?</p>
                             </div>
-                            <div class="notify__foot d-flex">
+                            <div class="notify__foot dd-flex">
                                 <button class="notify__btn btn--primary pointer buttonItem" type="button" Command="Cancel">Không</button>
                                 <button class="notify__btn btn--danger pointer buttonItem"  type="button">Xóa</button>
                             </div>
@@ -545,7 +582,7 @@
                                 <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
                             </svg>
                          </div>
-                         <div class="page-right d-flex">
+                         <div class="page-right dd-flex">
                              <div title="Tổng số lượng" class="align-flex">13</div>
                              <div title="Tổng tiền" class="align-flex">249000</div>
                              <div title="Tổng lũy kế" class="align-flex">1976</div>
@@ -558,24 +595,28 @@
     </div>
 
     <!-- Phần thư viện -->
-    
-    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-    <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script> -->
+    
+    <!-- <script src="./assets/lib/bootstrap/js/bootstrap.min.js"></script>
+    <script src="./assets/lib/bootstrap/js/popper.js"></script> -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script> -->
+    <script src="./assets/lib/bootstrap-5.0.1-dist/js/bootstrap.min.js"></script>
+    <script src="./assets/lib/sweetalert/sweetalert.min.js"></script>
 
     <!-- Phần dùng chung -->
-    <script src="Scripts/Common/common.js"></script>
-    <script src="Scripts/Common/Constant.js"></script>
-    <script src="Scripts/Common/Enumeration.js"></script>
-    <script src="Scripts/Common/Resource.js"></script>
-    <script src="Scripts/Views/Sidebar/sidebar.js"></script>
-    <script src="Scripts/Base/BaseForm.js"></script>
-    <script src="Scripts/Base/BaseGrid.js"></script>
+    <script src="scripts/common/common.js"></script>
+    <script src="scripts/common/constant.js"></script>
+    <script src="scripts/common/enumeration.js"></script>
+    <script src="scripts/common/resource.js"></script>
+    <script src="scripts/Views/sidebar/sidebar.js"></script>
+    <script src="scripts/base/baseForm.js"></script>
+    <script src="scripts/base/baseGrid.js"></script>
     
 
     <!-- Phần riêng từng màn hình -->
-    <script src="Scripts/Views/Employee/employeeDetail.js"></script>
-    <script src="Scripts/Views/Employee/employee.js"></script>
+    <script src="scripts/views/employee/employeeDetail.js"></script>
+    <script src="scripts/views/employee/employee.js"></script>
 
 </body>
 </html>
